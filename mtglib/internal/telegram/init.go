@@ -24,66 +24,66 @@ type tgAddr struct {
 }
 
 // https://github.com/telegramdesktop/tdesktop/blob/master/Telegram/SourceFiles/mtproto/mtproto_dc_options.cpp#L30
-var productionV4Addresses = [][]tgAddr{
-	{ // dc1
-		{network: "tcp4", address: "149.154.175.53:443"},
-	},
-	{ // dc2
-		{network: "tcp4", address: "149.154.167.51:443"},
-		{network: "tcp4", address: "95.161.76.100:443"},
-	},
-	{ // dc3
-		{network: "tcp4", address: "149.154.175.100:443"},
-	},
-	{ // dc4
-		{network: "tcp4", address: "149.154.167.91:443"},
-	},
-	{ // dc5
-		{network: "tcp4", address: "91.108.56.130:443"},
-	},
-}
+var (
+	productionV4Addresses = [][]tgAddr{
+		{ // dc1
+			{network: "tcp4", address: "149.154.175.53:443"},
+		},
+		{ // dc2
+			{network: "tcp4", address: "149.154.167.51:443"},
+			{network: "tcp4", address: "95.161.76.100:443"},
+		},
+		{ // dc3
+			{network: "tcp4", address: "149.154.175.100:443"},
+		},
+		{ // dc4
+			{network: "tcp4", address: "149.154.167.91:443"},
+		},
+		{ // dc5
+			{network: "tcp4", address: "91.108.56.130:443"},
+		},
+	}
+	productionV6Addresses = [][]tgAddr{
+		{ // dc1
+			{network: "tcp6", address: "[2001:b28:f23d:f001::a]:443"},
+		},
+		{ // dc2
+			{network: "tcp6", address: "[2001:67c:4e8:f002::a]:443"},
+		},
+		{ // dc3
+			{network: "tcp6", address: "[2001:b28:f23d:f003::a]:443"},
+		},
+		{ // dc4
+			{network: "tcp6", address: "[2001:67c:4e8:f004::a]:443"},
+		},
+		{ // dc5
+			{network: "tcp6", address: "[2001:b28:f23f:f005::a]:443"},
+		},
+	}
 
-var productionV6Addresses = [][]tgAddr{
-	{ // dc1
-		{network: "tcp6", address: "[2001:b28:f23d:f001::a]:443"},
-	},
-	{ // dc2
-		{network: "tcp6", address: "[2001:67c:4e8:f002::a]:443"},
-	},
-	{ // dc3
-		{network: "tcp6", address: "[2001:b28:f23d:f003::a]:443"},
-	},
-	{ // dc4
-		{network: "tcp6", address: "[2001:67c:4e8:f004::a]:443"},
-	},
-	{ // dc5
-		{network: "tcp6", address: "[2001:b28:f23f:f005::a]:443"},
-	},
-}
-
-var testV4Addresses = [][]tgAddr{
-	{ // dc1
-		{network: "tcp4", address: "149.154.175.10:443"},
-	},
-	{ // dc2
-		{network: "tcp4", address: "149.154.167.40:443"},
-	},
-	{ // dc3
-		{network: "tcp4", address: "149.154.175.117:443"},
-	},
-}
-
-var testV6Addresses = [][]tgAddr{
-	{ // dc1
-		{network: "tcp6", address: "[2001:b28:f23d:f001::e]:443"},
-	},
-	{ // dc2
-		{network: "tcp6", address: "[2001:67c:4e8:f002::e]:443"},
-	},
-	{ // dc3
-		{network: "tcp6", address: "[2001:b28:f23d:f003::e]:443"},
-	},
-}
+	testV4Addresses = [][]tgAddr{
+		{ // dc1
+			{network: "tcp4", address: "149.154.175.10:443"},
+		},
+		{ // dc2
+			{network: "tcp4", address: "149.154.167.40:443"},
+		},
+		{ // dc3
+			{network: "tcp4", address: "149.154.175.117:443"},
+		},
+	}
+	testV6Addresses = [][]tgAddr{
+		{ // dc1
+			{network: "tcp6", address: "[2001:b28:f23d:f001::e]:443"},
+		},
+		{ // dc2
+			{network: "tcp6", address: "[2001:67c:4e8:f002::e]:443"},
+		},
+		{ // dc3
+			{network: "tcp6", address: "[2001:b28:f23d:f003::e]:443"},
+		},
+	}
+)
 
 type Dialer interface {
 	DialContext(ctx context.Context, network, address string) (essentials.Conn, error)
